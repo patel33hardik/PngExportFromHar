@@ -24,3 +24,13 @@ Firefox:
     Reproduce the problem that you are having.
     Right-click anywhere in the File column and select Save All As HAR.
     Save the file as a .har file.
+
+Once you export the .har file book_downloader.py gets as arguments.
+
+usage: book_downloader.py [-h] [-f FILE_PATH] [-u SEARCH_URL] [-m MIME] [-e EXPORT_PATH] [-ex EXT]
+
+Script execution with output:
+$ py book_downloader.py -f har_data/demo.har -u "docImage.action?encrypted=" -m "image/png"
+Downloaded: 0_Image.png
+Downloaded: 1_Image.png
+Export process completed.
