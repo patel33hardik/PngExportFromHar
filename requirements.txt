@@ -1,0 +1,2 @@
+python3==3.11.4
+reportlab==4.0.4
