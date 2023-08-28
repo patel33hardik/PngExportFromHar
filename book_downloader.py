@@ -11,6 +11,11 @@ from reportlab.platypus import SimpleDocTemplate, Image
 def print_colored(text, color_code):
     print(f"\033[{color_code}m{text}\033[0m")
 
+def printGreen(text):
+    print_colored(text, '32')
+
+def printRed(text):
+    print_colored(text, '31')
 
 def download_preview(base64_data, save_path):
     image_data = base64.b64decode(base64_data)
@@ -52,9 +57,9 @@ def exportPdf(image_filenames):
 
         # Build the PDF document
         doc.build(elements)
-        print_colored('Pdf exported successfully!', '32')
+        printGreen('Pdf exported successfully!')
     except Exception as ex:
-        print_colored('Exception raised during export pdf: {}'.format(ex), '31')
+        printRed('Exception raised during export pdf: {}'.format(ex))
 
 
 def main():
@@ -80,24 +85,22 @@ def main():
     args = parser.parse_args()
 
     if args.file_path is None:
-        print_colored('Enter valid .har file path', '31')
+        printRed('Enter valid .har file path')
         parser.print_help()
         exit()
 
     if args.search_url is None:
-        print_colored('Enter valid search url to find in the .har file', '31')
+        printRed('Enter valid search url to find in the .har file')
         parser.print_help()
         exit()
 
     if args.mime is None:
-        print_colored(
-            'Enter valid search mimeType to find in the .har file. e.x image/png, image/jpeg', '31'
-        )
+        printRed('Enter valid search mimeType to find in the .har file. e.x image/png, image/jpeg')
         parser.print_help()
         exit()
 
     if not os.path.exists(args.file_path):
-        print_colored('.Har File does not exist at {}'.format(args.file_path), '31')
+        printRed('.Har File does not exist at {}'.format(args.file_path))
         parser.print_help()
         exit()
 
@@ -130,7 +133,7 @@ def main():
         if len(image_filenames) > 0:
             exportPdf(image_filenames)
 
-    print_colored('Export process completed.', '32')
+    printGreen('Export process completed.')
 
 if __name__ == '__main__':
     try:
