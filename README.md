@@ -10,6 +10,8 @@ To use the project, users must input a `.har` file containing the server respons
 To retrieve and export the stream as a `.har` file, users should follow the steps provided.
 It is important to note that the stream must be analyzed using the developer tools network tab in order to convert it into a PNG file.
 
+Warning: This code is provided for educational purposes and intended for learning and personal use only. Please use it responsibly and at your own risk. Misuse of this code may have legal implications. The author and contributors are not responsible for any misuse of this code.
+
 ### Chrome:
 - Open the Chrome browser.
 - Go to the web page that you want to export a `.har` file for.
